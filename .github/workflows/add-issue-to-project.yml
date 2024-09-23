@@ -55,79 +55,75 @@ jobs:
           PROJECT_ITEM_ID: ${{ steps.get-project-item-id.outputs.PROJECT_ITEM_ID }}
         run: |
           echo "Setting fields for Project Item ID: ${PROJECT_ITEM_ID}"
-          
+
           # Set component to "Profilarr"
           result=$(gh api graphql -f query='
-            mutation($project:ID!, $item:ID!, $fieldId:ID!, $value:String!) {
-              updateProjectV2ItemFieldValue(input: {
-                projectId: $project
-                itemId: $item
-                fieldId: $fieldId
-                value: { 
-                  singleSelectOptionId: $value
-                }
-              }) {
-                projectV2Item {
-                  id
-                }
+          mutation($project:ID!, $item:ID!, $fieldId:ID!, $value:String!) {
+            updateProjectV2ItemFieldValue(input: {
+              projectId: $project
+              itemId: $item
+              fieldId: $fieldId
+              value: {
+                singleSelectOptionId: $value
               }
-            }' -f project="PVT_kwDOCjbMFM4AjuUh" -f item="${PROJECT_ITEM_ID}" -f fieldId="PVTSSF_lADOCjbMFM4AjuUhzgcCr_E" -f value="48fc49c7")
+            }) {
+              projectV2Item {
+                id
+              }
+            }
+          }' -f project="PVT_kwDOCjbMFM4AjuUh" -f item="${PROJECT_ITEM_ID}" -f fieldId="PVTSSF_lADOCjbMFM4AjuUhzgcCr_E" -f value="48fc49c7")
           echo "Set component result: $result"
-          
+
           # Set status to "Backlog"
           result=$(gh api graphql -f query='
-            mutation($project:ID!, $item:ID!, $fieldId:ID!, $value:String!) {
-              updateProjectV2ItemFieldValue(input: {
-                projectId: $project
-                itemId: $item
-                fieldId: $fieldId
-                value: { 
-                  singleSelectOptionId: $value
-                }
-              }) {
-                projectV2Item {
-                  id
-                }
+          mutation($project:ID!, $item:ID!, $fieldId:ID!, $value:String!) {
+            updateProjectV2ItemFieldValue(input: {
+              projectId: $project
+              itemId: $item
+              fieldId: $fieldId
+              value: {
+                singleSelectOptionId: $value
               }
-            }' -f project="PVT_kwDOCjbMFM4AjuUh" -f item="${PROJECT_ITEM_ID}" -f fieldId="PVTSSF_lADOCjbMFM4AjuUhzgcCn8s" -f value="f75ad846")
+            }) {
+              projectV2Item {
+                id
+              }
+            }
+          }' -f project="PVT_kwDOCjbMFM4AjuUh" -f item="${PROJECT_ITEM_ID}" -f fieldId="PVTSSF_lADOCjbMFM4AjuUhzgcCn8s" -f value="f75ad846")
           echo "Set status result: $result"
-          
+
           # Get the label of the issue
-          LABEL=$(gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }} --jq '.labels[0].name')
+          LABEL=$(gh api repos/Dictionarry-Hub/website/issues/${{ github.event.issue.number }} --jq '.labels[0].name')
           echo "Issue label: $LABEL"
-          
+
           # Convert label to lowercase for comparison
           LABEL_LOWER=$(echo "$LABEL" | tr '[:upper:]' '[:lower:]')
-          
+
           # Set issue type based on label
           ISSUE_TYPE_ID=$(case $LABEL_LOWER in
             "bug") echo "b760225f" ;;
-            "feature request") echo "1341bde2" ;;
-            "improvement") echo "cb34d96f" ;;
-            "documentation") echo "269885d0" ;;
-            "refactor") echo "4996f537" ;;
-            "infrastructure") echo "45a91bfe" ;;
+            "improvement") echo "269885d0" ;;
             *) echo "" ;;
           esac)
-          
+
           if [ -z "$ISSUE_TYPE_ID" ]; then
             echo "No matching issue type for label: $LABEL"
           else
             echo "Setting issue type to ID: $ISSUE_TYPE_ID"
             result=$(gh api graphql -f query='
-              mutation($project:ID!, $item:ID!, $fieldId:ID!, $value:String!) {
-                updateProjectV2ItemFieldValue(input: {
-                  projectId: $project
-                  itemId: $item
-                  fieldId: $fieldId
-                  value: { 
-                    singleSelectOptionId: $value
-                  }
-                }) {
-                  projectV2Item {
-                    id
-                  }
+            mutation($project:ID!, $item:ID!, $fieldId:ID!, $value:String!) {
+              updateProjectV2ItemFieldValue(input: {
+                projectId: $project
+                itemId: $item
+                fieldId: $fieldId
+                value: {
+                  singleSelectOptionId: $value
                 }
-              }' -f project="PVT_kwDOCjbMFM4AjuUh" -f item="${PROJECT_ITEM_ID}" -f fieldId="PVTSSF_lADOCjbMFM4AjuUhzgcCswQ" -f value="$ISSUE_TYPE_ID")
+              }) {
+                projectV2Item {
+                  id
+                }
+              }
+            }' -f project="PVT_kwDOCjbMFM4AjuUh" -f item="${PROJECT_ITEM_ID}" -f fieldId="PVTSSF_lADOCjbMFM4AjuUhzgcCswQ" -f value="$ISSUE_TYPE_ID")
             echo "Set issue type result: $result"
           fi

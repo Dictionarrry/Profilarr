@@ -56,7 +56,7 @@ def delete_custom_formats_or_profiles(app, instance, item_type, config):
     Deletes either custom formats or quality profiles based on the item_type.
     """
     api_key = instance['api_key']
-    base_url = instance['base_url']
+    base_url = get_url(instance)
     resource_type = item_type  # 'customformat' or 'qualityprofile'
 
     if item_type == 'customformat':

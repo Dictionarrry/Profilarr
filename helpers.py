@@ -4,6 +4,7 @@ import requests
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import sys
+import re
 
 class Colors:
     GREEN = '\033[92m'
@@ -19,6 +20,11 @@ class Apps:
         "2": "sonarr",
         # Add more apps here as needed
     }
+
+def get_url(instance):
+    url = instance['base_url']
+    normalized_url = re.sub(r'/$', '', url)
+    return normalized_url
 
 def print_message(message, message_type='', newline=True):
     config = load_config()

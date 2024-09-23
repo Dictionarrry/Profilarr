@@ -41,7 +41,7 @@ def import_custom_formats(app, instances):
 
     for instance in instances:
         api_key = instance['api_key']
-        base_url = instance['base_url']
+        base_url = get_url(instance)
 
         existing_formats = make_request('get', base_url, api_key, 'customformat')
         existing_names_to_id = {format['name']: format['id'] for format in existing_formats}
@@ -90,7 +90,7 @@ def get_existing_profiles(base_url, api_key):
 def cf_import_sync(instances):
     for instance in instances:
         api_key = instance['api_key']
-        base_url = instance['base_url']
+        base_url = get_url(instance)
         resource_type = 'customformat'
         response = make_request('get', base_url, api_key, resource_type)
         
@@ -179,7 +179,7 @@ def import_quality_profiles(app, instances):
     selected_profiles_names = user_select_profiles(all_profiles)
 
     for instance in instances:
-        base_url = instance['base_url']
+        base_url = get_url(instance)
         api_key = instance['api_key']
         custom_formats = instance.get('custom_formats', {})
         existing_profiles = get_existing_profiles(base_url, api_key)  # Retrieve existing profiles

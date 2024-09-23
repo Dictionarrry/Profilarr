@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  radarr-dev:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-dev
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Etc/UTC
+    volumes:
+      - ./config/radarr-dev:/config
+      - ./data/dummy_radarr-dev:/downloads # Dummy path for downloads
+    ports:
+      - "7887:7878" # Unique port for Radarr development instance
+    restart: unless-stopped
+
+  sonarr-dev:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-dev
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Etc/UTC
+    volumes:
+      - ./config/sonarr-dev:/config
+      - ./data/dummy_sonarr-dev:/downloads # Dummy path for downloads
+    ports:
+      - "8998:8989" # Unique port for Sonarr development instance
+    restart: unless-stopped

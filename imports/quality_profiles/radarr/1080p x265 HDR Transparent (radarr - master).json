@@ -1,6 +1,6 @@
 [
   {
-    "name": "1080p Transparent",
+    "name": "1080p x265 HDR Transparent",
     "upgradeAllowed": true,
     "cutoff": 1002,
     "items": [
@@ -370,42 +370,42 @@
       {
         "format": 353,
         "name": "BHDStudio (1080p x265)",
-        "score": 0
+        "score": -9999
       },
       {
         "format": 352,
         "name": "E1",
-        "score": 0
+        "score": 70
       },
       {
         "format": 351,
         "name": "2160p x265",
-        "score": 0
+        "score": -9999
       },
       {
         "format": 349,
         "name": "EXCiSiON",
-        "score": 0
+        "score": 70
       },
       {
         "format": 348,
         "name": "Unwanted x265 Groups",
-        "score": 0
+        "score": -9999
       },
       {
         "format": 347,
         "name": "CRX",
-        "score": 0
+        "score": 70
       },
       {
         "format": 346,
         "name": "HDR10 (Missing) (x265 HDR only)",
-        "score": 0
+        "score": 10
       },
       {
         "format": 345,
         "name": "UHD Bluray",
-        "score": 0
+        "score": 350
       },
       {
         "format": 344,
@@ -450,7 +450,7 @@
       {
         "format": 335,
         "name": "Blu-Ray (Remux)",
-        "score": 0
+        "score": -9999
       },
       {
         "format": 334,
@@ -515,7 +515,7 @@
       {
         "format": 321,
         "name": "UHDBits",
-        "score": 0
+        "score": -9999
       },
       {
         "format": 318,
@@ -530,22 +530,22 @@
       {
         "format": 316,
         "name": "HDR10 (Missing)",
-        "score": -9999
+        "score": 10
       },
       {
         "format": 315,
         "name": "HDR10",
-        "score": -9999
+        "score": 10
       },
       {
         "format": 314,
         "name": "Dolby Vision",
-        "score": -9999
+        "score": 30
       },
       {
         "format": 312,
         "name": "HDR10+",
-        "score": -9999
+        "score": 20
       },
       {
         "format": 308,
@@ -685,7 +685,7 @@
       {
         "format": 276,
         "name": "x265",
-        "score": -9999
+        "score": -90
       },
       {
         "format": 275,

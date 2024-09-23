@@ -50,6 +50,88 @@
                         "isFloat": false
                     }
                 ]
+            },
+            {
+                "name": "WEB",
+                "implementation": "SourceSpecification",
+                "implementationName": "Source",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Source",
+                        "value": 7,
+                        "type": "select",
+                        "advanced": false,
+                        "selectOptions": [
+                            {
+                                "value": 0,
+                                "name": "UNKNOWN",
+                                "order": 0,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 1,
+                                "name": "CAM",
+                                "order": 1,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 2,
+                                "name": "TELESYNC",
+                                "order": 2,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 3,
+                                "name": "TELECINE",
+                                "order": 3,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 4,
+                                "name": "WORKPRINT",
+                                "order": 4,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 5,
+                                "name": "DVD",
+                                "order": 5,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 6,
+                                "name": "TV",
+                                "order": 6,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 7,
+                                "name": "WEBDL",
+                                "order": 7,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 8,
+                                "name": "WEBRIP",
+                                "order": 8,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 9,
+                                "name": "BLURAY",
+                                "order": 9,
+                                "dividerAfter": false
+                            }
+                        ],
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
             }
         ]
     },
@@ -2925,6 +3007,27 @@
                         "isFloat": false
                     }
                 ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux)).*([x]\\s?(\\.?265))",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
             }
         ]
     },
@@ -4894,6 +4997,88 @@
                         "value": "(?i)(REMUX|DVDRip)",
                         "type": "textbox",
                         "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Bluray",
+                "implementation": "SourceSpecification",
+                "implementationName": "Source",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Source",
+                        "value": 9,
+                        "type": "select",
+                        "advanced": false,
+                        "selectOptions": [
+                            {
+                                "value": 0,
+                                "name": "UNKNOWN",
+                                "order": 0,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 1,
+                                "name": "CAM",
+                                "order": 1,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 2,
+                                "name": "TELESYNC",
+                                "order": 2,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 3,
+                                "name": "TELECINE",
+                                "order": 3,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 4,
+                                "name": "WORKPRINT",
+                                "order": 4,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 5,
+                                "name": "DVD",
+                                "order": 5,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 6,
+                                "name": "TV",
+                                "order": 6,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 7,
+                                "name": "WEBDL",
+                                "order": 7,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 8,
+                                "name": "WEBRIP",
+                                "order": 8,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 9,
+                                "name": "BLURAY",
+                                "order": 9,
+                                "dividerAfter": false
+                            }
+                        ],
                         "privacy": "normal",
                         "isFloat": false
                     }
@@ -6948,6 +7133,279 @@
                         "isFloat": false
                     }
                 ]
+            },
+            {
+                "name": "CRX",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])CRX\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "playWEB",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])playWEB\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "playSD",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])playSD\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "playBD",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])playBD\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "iROBOT",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])iROBOT\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "RPG",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])RPG\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "MKVULTRA",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])MKVULTRA\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "-ZR-",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])\\-ZR\\-\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "S0NNY",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])S0NNY\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "CRFW",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])CRFW\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "CRX: CRX",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])CRX\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "EXCiSiON: EXCiSiON",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])EXCiSiON\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "E1",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])E1\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
             }
         ]
     },
@@ -7480,7 +7938,7 @@
                         "name": "value",
                         "label": "Regular Expression",
                         "helpText": "Custom Format RegEx is Case Insensitive",
-                        "value": "\\b(roku)\\b",
+                        "value": "\\b(1080p[ .\\-_]ROKU|ROKU[ .\\-_]1080p)\\b",
                         "type": "textbox",
                         "advanced": false,
                         "privacy": "normal",
@@ -8767,14 +9225,14 @@
         ]
     },
     {
-        "name": "AV-1",
+        "name": "AV1",
         "includeCustomFormatWhenRenaming": false,
         "specifications": [
             {
-                "name": "AV-1",
-                "implementation": "ReleaseGroupSpecification",
-                "implementationName": "Release Group",
-                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "name": "AV1",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
                 "negate": false,
                 "required": true,
                 "fields": [
@@ -8783,7 +9241,7 @@
                         "name": "value",
                         "label": "Regular Expression",
                         "helpText": "Custom Format RegEx is Case Insensitive",
-                        "value": "(?<=^|[\\s.-])AV-1\\b",
+                        "value": "\\bAV1\\b",
                         "type": "textbox",
                         "advanced": false,
                         "privacy": "normal",
@@ -9851,76 +10309,6 @@
                         "value": "\\[\\d{4}\\]",
                         "type": "textbox",
                         "advanced": false,
-                        "privacy": "normal",
-                        "isFloat": false
-                    }
-                ]
-            },
-            {
-                "name": "2160p",
-                "implementation": "ResolutionSpecification",
-                "implementationName": "Resolution",
-                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
-                "negate": false,
-                "required": true,
-                "fields": [
-                    {
-                        "order": 0,
-                        "name": "value",
-                        "label": "Resolution",
-                        "value": 2160,
-                        "type": "select",
-                        "advanced": false,
-                        "selectOptions": [
-                            {
-                                "value": 0,
-                                "name": "Unknown",
-                                "order": 0,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 360,
-                                "name": "R360p",
-                                "order": 360,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 480,
-                                "name": "R480p",
-                                "order": 480,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 540,
-                                "name": "R540p",
-                                "order": 540,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 576,
-                                "name": "R576p",
-                                "order": 576,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 720,
-                                "name": "R720p",
-                                "order": 720,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 1080,
-                                "name": "R1080p",
-                                "order": 1080,
-                                "dividerAfter": false
-                            },
-                            {
-                                "value": 2160,
-                                "name": "R2160p",
-                                "order": 2160,
-                                "dividerAfter": false
-                            }
-                        ],
                         "privacy": "normal",
                         "isFloat": false
                     }
@@ -11661,27 +12049,6 @@
                 ]
             },
             {
-                "name": "Tigole",
-                "implementation": "ReleaseGroupSpecification",
-                "implementationName": "Release Group",
-                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
-                "negate": false,
-                "required": false,
-                "fields": [
-                    {
-                        "order": 0,
-                        "name": "value",
-                        "label": "Regular Expression",
-                        "helpText": "Custom Format RegEx is Case Insensitive",
-                        "value": "^(Tigole)$",
-                        "type": "textbox",
-                        "advanced": false,
-                        "privacy": "normal",
-                        "isFloat": false
-                    }
-                ]
-            },
-            {
                 "name": "TIKO",
                 "implementation": "ReleaseGroupSpecification",
                 "implementationName": "Release Group",
@@ -12242,6 +12609,27 @@
                         "isFloat": false
                     }
                 ]
+            },
+            {
+                "name": "Verified groups",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])(HONE|SIGMA|SiGLA|DarQ|YELLO|Yoyo|GRiMM|HECATE|BLAZE|AnoZu)(?![.\\d])",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
             }
         ]
     },
@@ -12702,27 +13090,6 @@
         "name": "h265 (4k)",
         "includeCustomFormatWhenRenaming": false,
         "specifications": [
-            {
-                "name": "h265",
-                "implementation": "ReleaseTitleSpecification",
-                "implementationName": "Release Title",
-                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
-                "negate": false,
-                "required": true,
-                "fields": [
-                    {
-                        "order": 0,
-                        "name": "value",
-                        "label": "Regular Expression",
-                        "helpText": "Custom Format RegEx is Case Insensitive",
-                        "value": "(?i)h\\s*\\.?\\s*265",
-                        "type": "textbox",
-                        "advanced": false,
-                        "privacy": "normal",
-                        "isFloat": false
-                    }
-                ]
-            },
             {
                 "name": "Disc",
                 "implementation": "ReleaseTitleSpecification",
@@ -13281,7 +13648,7 @@
             {
                 "name": "jennaortegaUHD",
                 "implementation": "ReleaseGroupSpecification",
-                "implementationName": "Release Group",
+                "implementationName": "Release Title",
                 "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
                 "negate": false,
                 "required": true,
@@ -13292,6 +13659,1636 @@
                         "label": "Regular Expression",
                         "helpText": "Custom Format RegEx is Case Insensitive",
                         "value": "(?<=^|[\\s.-])jennaortegaUHD\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "UHD Bluray",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "UHD Bluray",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\buhd[- ._]bluray\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "HDR",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\b(dv|dovi|dolby[ .]?vision)\\b|HDR",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "HDR10 (Missing) (x265 HDR only)",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "Not SDR",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\bSDR(\\b|\\d)",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Not HDR10+",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\bHDR10(\\+|P(lus)?\\b)",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "HDR",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "HDR",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "DV",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\b(dv|dovi|dolby[ .]?vision)\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "1080p",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "[.\\- (\\[]?1080p",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux)).*([x]\\s?(\\.?265))",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "CRX",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "CRX",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])CRX\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Unwanted x265 Groups",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "SM737",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": false,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])SM737\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "EXCiSiON",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "EXCiSiON",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])EXCiSiON\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "2160p x265",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux)).*([x]\\s?(\\.?265))",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Disc",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*\\b((?<!HD[._ -]|HD)DVD|BDRip|MKV|XviD|WMV|d3g|BDREMUX|REMUX|^(?=.*1080p)(?=.*HEVC)|[xh][-_. ]?26[45]|German.*DL|((?<=\\d{4}).*German.*(DL)?)(?=.*\\b(AVC|HEVC|VC[-_. ]?1|MVC|MPEG[-_. ]?2)\\b))\\b)(((?=.*\\b(Blu[-_. ]?ray|BD|HD[-_. ]?DVD)\\b)(?=.*\\b(AVC|HEVC|VC[-_. ]?1|MVC|MPEG[-_. ]?2|BDMV|ISO)\\b))|^((?=.*\\b(^((?=.*\\b((.*_)?COMPLETE.*|Dis[ck])\\b)(?=.*(Blu[-_. ]?ray|HD[-_. ]?DVD)))|3D[-_. ]?BD|BR[-_. ]?DISK|Full[-_. ]?Blu[-_. ]?ray|^((?=.*((BD|UHD)[-_. ]?(25|50|66|100|ISO)))))))).*|(?i)(DVD9|DVD5|NTSC|PAL|VOB IFO|VC-1|AVC|MPEG-2|\\bCOMPLETE[-.\\s]?(?:UHD[-.\\s])?BLU[-.\\s]?RAY\\b|\\bCOMPLETE BLURAY\\b|\\bBR-Disk\\b)",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Remux",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?i)(REMUX|DVDRip)",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "2160p",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.\\-(])(2160p|UHD)\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "1080p",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "[.\\- (\\[]?1080p",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "E1",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "E1",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])E1\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "BHDStudio (1080p x265)",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "BHDStudio",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])BHDStudio\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux)).*([x]\\s?(\\.?265))",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "HONE",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "HONE",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])HONE\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "WEB",
+                "implementation": "SourceSpecification",
+                "implementationName": "Source",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Source",
+                        "value": 7,
+                        "type": "select",
+                        "advanced": false,
+                        "selectOptions": [
+                            {
+                                "value": 0,
+                                "name": "UNKNOWN",
+                                "order": 0,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 1,
+                                "name": "CAM",
+                                "order": 1,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 2,
+                                "name": "TELESYNC",
+                                "order": 2,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 3,
+                                "name": "TELECINE",
+                                "order": 3,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 4,
+                                "name": "WORKPRINT",
+                                "order": 4,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 5,
+                                "name": "DVD",
+                                "order": 5,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 6,
+                                "name": "TV",
+                                "order": 6,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 7,
+                                "name": "WEBDL",
+                                "order": 7,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 8,
+                                "name": "WEBRIP",
+                                "order": 8,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 9,
+                                "name": "BLURAY",
+                                "order": 9,
+                                "dividerAfter": false
+                            }
+                        ],
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NAN0",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "NAN0",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])NAN0\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TimeDistortion",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "TimeDistortion",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])TimeDistortion\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Chivaman",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "Chivaman",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])Chivaman\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "GRiMM",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "GRiMM",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])GRiMM\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Bluray",
+                "implementation": "SourceSpecification",
+                "implementationName": "Source",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Source",
+                        "value": 9,
+                        "type": "select",
+                        "advanced": false,
+                        "selectOptions": [
+                            {
+                                "value": 0,
+                                "name": "UNKNOWN",
+                                "order": 0,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 1,
+                                "name": "CAM",
+                                "order": 1,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 2,
+                                "name": "TELESYNC",
+                                "order": 2,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 3,
+                                "name": "TELECINE",
+                                "order": 3,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 4,
+                                "name": "WORKPRINT",
+                                "order": 4,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 5,
+                                "name": "DVD",
+                                "order": 5,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 6,
+                                "name": "TV",
+                                "order": 6,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 7,
+                                "name": "WEBDL",
+                                "order": 7,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 8,
+                                "name": "WEBRIP",
+                                "order": 8,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 9,
+                                "name": "BLURAY",
+                                "order": 9,
+                                "dividerAfter": false
+                            }
+                        ],
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TAoE",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "TAoE",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\bTAoE\\b|\\b(Goki|Frys|JBENT|DNU|Ainz|TheSickle|ANONAZ|Species180|r0b0t|xtrem3x|HxD|ArcX|WEM|Nostradamus|Erie|DUHIT|jb2049|DrainedDay|AJJMIN)\\W*([A-Z]|(\\[SEV\\])?\\W*(TAoE)?\\W*(mkv)?)$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux))(?=.*(\\b[x]\\s?(\\.?265)\\b|HEVC)).*$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "h265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?i)h\\\\s*\\\\.?\\\\s*265",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Vyndros",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "Vyndros",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])Vyndros\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Ralphy",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "Ralphy",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])Ralphy(?:P)?\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux))(?=.*(\\b[x]\\s?(\\.?265)\\b|HEVC)).*$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "R1GY3B / B3YG1R",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "R1GY3B / B3YG1R",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])(R1GY3B|B3YG1R)\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "dkore",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "dkore",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])dkore\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "AnoZu",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "AnoZu",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])AnoZu\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "LSt",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "LSt",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])LSt\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SEV",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux))(?=.*(\\b[x]\\s?(\\.?265)\\b|HEVC)).*$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Goki",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\b(goki)\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "UTR",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?:^|[\\s.-])(UTR)(?![.\\d])\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "UTR",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "UTR",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "SEV",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\bSEV\\b|\\b(Kira|D0ct0rLew)\\W*([A-Z]|(SEV)?(mkv)?)$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "LEGi0N (x265)",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "LEGi0N",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])LEGi0N\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux)).*([x]\\s?(\\.?265))",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "MainFrame",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "MainFrame",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])MainFrame\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "x265 (Web)",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux))(?=.*(\\b[x]\\s?(\\.?265)\\b|HEVC|\\bDS4K\\b)).*$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Disc",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*\\b((?<!HD[._ -]|HD)DVD|BDRip|MKV|XviD|WMV|d3g|BDREMUX|REMUX|^(?=.*1080p)(?=.*HEVC)|[xh][-_. ]?26[45]|German.*DL|((?<=\\d{4}).*German.*(DL)?)(?=.*\\b(AVC|HEVC|VC[-_. ]?1|MVC|MPEG[-_. ]?2)\\b))\\b)(((?=.*\\b(Blu[-_. ]?ray|BD|HD[-_. ]?DVD)\\b)(?=.*\\b(AVC|HEVC|VC[-_. ]?1|MVC|MPEG[-_. ]?2|BDMV|ISO)\\b))|^((?=.*\\b(^((?=.*\\b((.*_)?COMPLETE.*|Dis[ck])\\b)(?=.*(Blu[-_. ]?ray|HD[-_. ]?DVD)))|3D[-_. ]?BD|BR[-_. ]?DISK|Full[-_. ]?Blu[-_. ]?ray|^((?=.*((BD|UHD)[-_. ]?(25|50|66|100|ISO)))))))).*|(?i)(DVD9|DVD5|NTSC|PAL|VOB IFO|VC-1|AVC|MPEG-2|\\bCOMPLETE[-.\\s]?(?:UHD[-.\\s])?BLU[-.\\s]?RAY\\b|\\bCOMPLETE BLURAY\\b|\\bBR-Disk\\b)",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Remux",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?i)(REMUX|DVDRip)",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "WEB",
+                "implementation": "SourceSpecification",
+                "implementationName": "Source",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Source",
+                        "value": 7,
+                        "type": "select",
+                        "advanced": false,
+                        "selectOptions": [
+                            {
+                                "value": 0,
+                                "name": "UNKNOWN",
+                                "order": 0,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 1,
+                                "name": "CAM",
+                                "order": 1,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 2,
+                                "name": "TELESYNC",
+                                "order": 2,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 3,
+                                "name": "TELECINE",
+                                "order": 3,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 4,
+                                "name": "WORKPRINT",
+                                "order": 4,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 5,
+                                "name": "DVD",
+                                "order": 5,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 6,
+                                "name": "TV",
+                                "order": 6,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 7,
+                                "name": "WEBDL",
+                                "order": 7,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 8,
+                                "name": "WEBRIP",
+                                "order": 8,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 9,
+                                "name": "BLURAY",
+                                "order": 9,
+                                "dividerAfter": false
+                            }
+                        ],
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "edge2020",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "edge2020",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])edge2020\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "x265 (Missing)",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "h265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux)).*([h]\\s?(\\.?265))",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "Bluray",
+                "implementation": "SourceSpecification",
+                "implementationName": "Source",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Source",
+                        "value": 9,
+                        "type": "select",
+                        "advanced": false,
+                        "selectOptions": [
+                            {
+                                "value": 0,
+                                "name": "UNKNOWN",
+                                "order": 0,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 1,
+                                "name": "CAM",
+                                "order": 1,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 2,
+                                "name": "TELESYNC",
+                                "order": 2,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 3,
+                                "name": "TELECINE",
+                                "order": 3,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 4,
+                                "name": "WORKPRINT",
+                                "order": 4,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 5,
+                                "name": "DVD",
+                                "order": 5,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 6,
+                                "name": "TV",
+                                "order": 6,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 7,
+                                "name": "WEBDL",
+                                "order": 7,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 8,
+                                "name": "WEBRIP",
+                                "order": 8,
+                                "dividerAfter": false
+                            },
+                            {
+                                "value": 9,
+                                "name": "BLURAY",
+                                "order": 9,
+                                "dividerAfter": false
+                            }
+                        ],
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "QxR",
+        "includeCustomFormatWhenRenaming": true,
+        "specifications": [
+            {
+                "name": "QxR",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "\\bQxR\\b|\\b(Tigole|FreetheFish|SAMPA|afm72|Silence|r00t|YOGI|MONOLITH|Panda|Kappa|t3nzin|RCVR|ImE|RZeroX|Garshasp|Ghost|Bandi|Natty)\\W*([A-Z]|(\\[Theft\\])?\\W*(QxR)?\\W*(mkv)?)$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "x265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "^(?!.*(?i:remux))(?=.*(\\b[x]\\s?(\\.?265)\\b|HEVC)).*$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "h265",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?i)h\\s*\\.?\\s*265",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "UTR (Group)",
+                "implementation": "ReleaseGroupSpecification",
+                "implementationName": "Release Group",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "UTR",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "UTR (Title)",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?:^|[\\s.-])(?:UTR|\\[UTR\\])\\b(?![.\\d])|(?:^|[\\s.-])\\[UTR\\]$",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            },
+            {
+                "name": "HONE",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/radarr/settings#custom-formats-2",
+                "negate": true,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(?<=^|[\\s.-])HONE\\b",
+                        "type": "textbox",
+                        "advanced": false,
+                        "privacy": "normal",
+                        "isFloat": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Upscaled",
+        "includeCustomFormatWhenRenaming": false,
+        "specifications": [
+            {
+                "name": "Upscaled",
+                "implementation": "ReleaseTitleSpecification",
+                "implementationName": "Release Title",
+                "infoLink": "https://wiki.servarr.com/sonarr/settings#custom-formats-2",
+                "negate": false,
+                "required": true,
+                "fields": [
+                    {
+                        "order": 0,
+                        "name": "value",
+                        "label": "Regular Expression",
+                        "helpText": "Custom Format RegEx is Case Insensitive",
+                        "value": "(Up[-\\.\\s]?scale|Re[-\\.\\s]?Grade|\\bAIUS\\b|AI[-\\.\\s]?enhanced)",
                         "type": "textbox",
                         "advanced": false,
                         "privacy": "normal",

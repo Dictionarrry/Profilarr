@@ -34,7 +34,7 @@ def export_custom_formats(app, instances, config):
     for instance in instances:
         print_message(f"Exporting Custom Formats for {app.capitalize()} : {instance['name']}", 'blue')
         
-        url = instance['base_url']
+        url = get_url(instance)
         api_key = instance['api_key']
 
         # Get the export path from the config
@@ -87,7 +87,7 @@ def create_quality_profiles_export_path(app, config):
 def export_quality_profiles(app, instances, config):
     for instance in instances:
         print_message(f"Exporting Quality Profiles for {app.capitalize()} : {instance['name']}", 'blue')
-        url = instance['base_url']
+        url = get_url(instance)
         api_key = instance['api_key']
 
         # Create the export directory
