@@ -20,6 +20,7 @@ export const useArrModal = ({isOpen, onSubmit, editingArr}) => {
         sync_method: 'manual',
         sync_interval: 0,
         import_as_unique: false,
+        is_testing: false,
         data_to_sync: {
             profiles: [],
             customFormats: []
@@ -48,6 +49,7 @@ export const useArrModal = ({isOpen, onSubmit, editingArr}) => {
             setFormData({
                 ...editingArr,
                 import_as_unique: editingArr?.import_as_unique || false,
+                is_testing: editingArr?.is_testing || false,
                 data_to_sync: editingArr.data_to_sync || {
                     profiles: [],
                     customFormats: []
@@ -63,6 +65,7 @@ export const useArrModal = ({isOpen, onSubmit, editingArr}) => {
                 sync_method: 'manual',
                 sync_interval: 0,
                 import_as_unique: false,
+                is_testing: false,
                 data_to_sync: {
                     profiles: [],
                     customFormats: []

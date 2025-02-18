@@ -38,11 +38,10 @@ export const saveArrConfig = async config => {
                 return (status >= 200 && status < 300) || status === 409;
             }
         });
-
         if (response.status === 409) {
             return {
                 success: false,
-                error: 'Configuration with this name already exists'
+                error: response.data.error
             };
         }
         return response.data;
@@ -59,11 +58,10 @@ export const updateArrConfig = async (id, config) => {
                 return (status >= 200 && status < 300) || status === 409;
             }
         });
-
         if (response.status === 409) {
             return {
                 success: false,
-                error: 'Configuration with this name already exists'
+                error: response.data.error
             };
         }
         return response.data;

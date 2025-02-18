@@ -19,6 +19,8 @@ def save_arr_config(config):
     """
     Create a new arr_config row, then create a corresponding scheduled task (if sync_method != manual).
     Store the newly created task's ID in arr_config.import_task_id.
+    
+    If is_testing is True, ensures only one testing instance exists per arr type.
     """
     with get_db() as conn:
         cursor = conn.cursor()
@@ -38,6 +40,23 @@ def save_arr_config(config):
                     'status_code': 409
                 }
 
+            # Check if there's already a testing instance for this arr type
+            if config.get('is_testing'):
+                existing_testing = cursor.execute(
+                    'SELECT id, name FROM arr_config WHERE type = ? AND is_testing = 1',
+                    (config['type'], )).fetchone()
+
+                if existing_testing:
+                    logger.warning(
+                        f"[save_arr_config] Attempted to create second testing instance for {config['type']}"
+                    )
+                    return {
+                        'success': False,
+                        'error':
+                        f"A testing instance already exists for {config['type']} ('{existing_testing['name']}')",
+                        'status_code': 409
+                    }
+
             # 1) Insert the arr_config row
             logger.debug(
                 f"[save_arr_config] Attempting to create new arr_config with name={config['name']} sync_method={config.get('sync_method')}"
@@ -49,9 +68,9 @@ def save_arr_config(config):
                     name, type, tags, arr_server, api_key, 
                     data_to_sync, last_sync_time, sync_percentage,
                     sync_method, sync_interval, import_as_unique,
-                    import_task_id
+                    import_task_id, is_testing
                 )
-                VALUES (?, ?, ?, ?, ?, ?, NULL, 0, ?, ?, ?, NULL)
+                VALUES (?, ?, ?, ?, ?, ?, NULL, 0, ?, ?, ?, NULL, ?)
                 ''', (
                     config['name'],
                     config['type'],
@@ -62,6 +81,7 @@ def save_arr_config(config):
                     config.get('sync_method', 'manual'),
                     config.get('sync_interval', 0),
                     config.get('import_as_unique', False),
+                    config.get('is_testing', False),
                 ))
             conn.commit()
 
@@ -104,7 +124,8 @@ def save_arr_config(config):
 
 def update_arr_config(id, config):
     """
-    Update an existing arr_config row, then create/update/remove the corresponding scheduled task as needed.
+    Update an existing arr_config row.
+    If is_testing is being enabled, ensures only one testing instance exists per arr type.
     """
     with get_db() as conn:
         cursor = conn.cursor()
@@ -123,6 +144,23 @@ def update_arr_config(id, config):
                     'error': 'Configuration with this name already exists',
                     'status_code': 409
                 }
+
+            # If enabling testing mode, check for existing testing instance
+            if config.get('is_testing'):
+                existing_testing = cursor.execute(
+                    'SELECT id, name FROM arr_config WHERE type = ? AND is_testing = 1 AND id != ?',
+                    (config['type'], id)).fetchone()
+
+                if existing_testing:
+                    logger.warning(
+                        f"[update_arr_config] Attempted to create second testing instance for {config['type']}"
+                    )
+                    return {
+                        'success': False,
+                        'error':
+                        f"A testing instance already exists for {config['type']} ('{existing_testing['name']}')",
+                        'status_code': 409
+                    }
 
             # 1) Grab existing row so we know the existing import_task_id
             existing_row = cursor.execute(
@@ -151,7 +189,8 @@ def update_arr_config(id, config):
                     data_to_sync = ?,
                     sync_method = ?,
                     sync_interval = ?,
-                    import_as_unique = ?
+                    import_as_unique = ?,
+                    is_testing = ?
                 WHERE id = ?
                 ''',
                 (config['name'], config['type'],
@@ -159,7 +198,8 @@ def update_arr_config(id, config):
                  config['apiKey'], json.dumps(config.get(
                      'data_to_sync', {})), config.get('sync_method', 'manual'),
                  config.get('sync_interval',
-                            0), config.get('import_as_unique', False), id))
+                            0), config.get('import_as_unique', False),
+                 config.get('is_testing', False), id))
             conn.commit()
             if cursor.rowcount == 0:
                 logger.debug(
@@ -280,7 +320,9 @@ def get_all_arr_configs():
                     'import_as_unique':
                     bool(row['import_as_unique']),
                     'import_task_id':
-                    row['import_task_id']
+                    row['import_task_id'],
+                    'is_testing':
+                    bool(row['is_testing'])
                 })
             return {'success': True, 'data': configs}
         except Exception as e:
@@ -315,8 +357,6 @@ def get_arr_config(id):
                         row['last_sync_time'],
                         'sync_percentage':
                         row['sync_percentage'],
-
-                        # Keep these as-is
                         'sync_method':
                         row['sync_method'],
                         'sync_interval':
@@ -324,7 +364,9 @@ def get_arr_config(id):
                         'import_as_unique':
                         bool(row['import_as_unique']),
                         'import_task_id':
-                        row['import_task_id']
+                        row['import_task_id'],
+                        'is_testing':
+                        bool(row['is_testing'])
                     }
                 }
             logger.debug(
@@ -392,7 +434,9 @@ def get_pull_configs():
                 'import_as_unique':
                 bool(row['import_as_unique']),
                 'import_task_id':
-                row['import_task_id']
+                row['import_task_id'],
+                'is_testing':
+                bool(row['is_testing'])
             })
         return results
 

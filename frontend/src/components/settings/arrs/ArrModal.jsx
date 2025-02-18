@@ -180,6 +180,36 @@ const ArrModal = ({isOpen, onClose, onSubmit, editingArr}) => {
                     />
                 </div>
 
+                {/* Testing Instance */}
+                <div className='space-y-1.5'>
+                    <div className='flex items-center justify-between'>
+                        <label className='flex items-center space-x-2'>
+                            <input
+                                type='checkbox'
+                                checked={formData.is_testing || false}
+                                onChange={e =>
+                                    handleInputChange({
+                                        target: {
+                                            id: 'is_testing',
+                                            value: e.target.checked
+                                        }
+                                    })
+                                }
+                                className='rounded border-gray-300 text-blue-600 focus:ring-blue-500'
+                            />
+                            <span className='text-sm text-gray-700 dark:text-gray-300'>
+                                Use For Testing
+                            </span>
+                        </label>
+                        <span className='text-xs text-gray-500 dark:text-gray-400 max-w-md text-right'>
+                            Use this app as an endpoint for regex / custom
+                            format testing - only needed for development. Only
+                            one testing instance can exist per app type
+                            (Radarr/Sonarr)
+                        </span>
+                    </div>
+                </div>
+
                 {/* Type Field */}
                 <div className='space-y-1.5'>
                     <label
